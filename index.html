@@ -1312,12 +1312,14 @@ function draw(x, y) {
     drawCtx.globalCompositeOperation = 'source-over';
     drawCtx.globalAlpha = 0.6;
     drawCtx.lineWidth = Math.max(1, drawSize * 0.8);
-    drawCtx.strokeStyle = drawColor;
+    drawCtx.strokeStyle = drawColor || '#ffffff';
+
   } else {
     drawCtx.globalCompositeOperation = 'source-over';
     drawCtx.globalAlpha = 1;
     drawCtx.lineWidth = drawSize;
-    drawCtx.strokeStyle = drawColor;
+    drawCtx.strokeStyle = drawColor || '#00d4ff';
+
   }
   drawCtx.moveTo(lastX, lastY);
   drawCtx.lineTo(x, y);
