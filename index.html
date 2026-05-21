@@ -75,6 +75,7 @@ select{background:#0e0e0e !important;color:#f0f0f0 !important;border:1px solid r
 select:focus{border-color:var(--neon-blue) !important;box-shadow:0 0 0 2px rgba(0,212,255,0.15) !important}
 select option{background:#0e0e0e !important;color:#f0f0f0 !important;padding:10px 14px !important;font-family:var(--font-display)}
 select option:hover,select option:focus,select option:checked{background:#1a1a2e !important;color:var(--neon-blue) !important}
+select optgroup{background:#0e0e0e !important;color:#555 !important;font-size:11px;font-weight:700;letter-spacing:1px}
 .welcome-btn{width:100%;padding:15px;background:linear-gradient(135deg,var(--neon-blue),var(--neon-purple));border:none;border-radius:var(--radius-md);color:#000;font-family:var(--font-display);font-size:15px;font-weight:700;cursor:none;transition:var(--transition);letter-spacing:0.5px}
 .welcome-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,212,255,0.3)}
 .welcome-credit{margin-top:24px;font-size:11px;color:var(--text-muted);font-family:var(--font-mono)}
@@ -233,15 +234,7 @@ select option:hover,select option:focus,select option:checked{background:#1a1a2e
 .size-slider{-webkit-appearance:none;width:80px;height:4px;border-radius:2px;background:var(--border);outline:none;cursor:none}
 .size-slider::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--neon-blue);cursor:none}
 .canvas-wrap{flex:1;position:relative;overflow:hidden;background:rgba(255,255,255,0.02)}
-#drawing-canvas{
-position:absolute;
-top:0;
-left:0;
-cursor:crosshair;
-background:#111;
-border-radius:16px;
-}
-
+#drawing-canvas{position:absolute;top:0;left:0;cursor:crosshair}
 
 /* ===== FLASHCARDS ===== */
 .flashcard-container{display:flex;flex-direction:column;gap:20px;max-width:700px;margin:0 auto}
@@ -358,6 +351,27 @@ border-radius:16px;
 .toggle.on{background:var(--neon-blue)}
 .toggle::after{content:'';position:absolute;width:18px;height:18px;background:#fff;border-radius:50%;top:3px;left:3px;transition:var(--transition);box-shadow:0 1px 3px rgba(0,0,0,0.3)}
 .toggle.on::after{left:23px}
+
+/* ===== LOGOUT ===== */
+.logout-btn{width:100%;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--radius-sm);cursor:pointer;transition:var(--transition);color:#ff2d78;font-size:13px;font-weight:600;background:rgba(255,45,120,0.05);border:1px solid rgba(255,45,120,0.15);margin-top:8px}
+.logout-btn:hover{background:rgba(255,45,120,0.12);border-color:rgba(255,45,120,0.4);box-shadow:0 0 14px rgba(255,45,120,0.15)}
+#logout-modal{position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9500;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(18px);opacity:0;pointer-events:none;transition:opacity 0.3s ease}
+#logout-modal.active{opacity:1;pointer-events:all}
+.logout-card{background:rgba(10,10,10,0.98);border:1px solid rgba(255,45,120,0.3);border-radius:var(--radius-xl);padding:40px 36px;max-width:380px;width:100%;text-align:center;position:relative;box-shadow:0 0 60px rgba(255,45,120,0.1),0 20px 60px rgba(0,0,0,0.8);animation:fadeIn 0.3s ease}
+.logout-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--neon-pink),transparent);border-radius:var(--radius-xl) var(--radius-xl) 0 0}
+.logout-icon{font-size:52px;margin-bottom:16px;display:block}
+.logout-title{font-size:22px;font-weight:800;margin-bottom:8px}
+.logout-desc{font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:20px}
+.logout-user-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,45,120,0.08);border:1px solid rgba(255,45,120,0.2);border-radius:40px;padding:8px 18px;margin-bottom:28px}
+.logout-pill-av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--neon-blue),var(--neon-purple));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#000}
+.logout-pill-name{font-size:13px;font-weight:600}
+.logout-pill-course{font-size:10px;color:var(--neon-pink);font-family:var(--font-mono)}
+.logout-btns{display:flex;gap:10px}
+.logout-cancel-btn{flex:1;padding:13px;background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--text-secondary);font-family:var(--font-display);font-size:14px;font-weight:600;cursor:pointer;transition:var(--transition)}
+.logout-cancel-btn:hover{border-color:var(--neon-blue);color:var(--neon-blue)}
+.logout-confirm-btn{flex:1;padding:13px;background:linear-gradient(135deg,#ff2d78,#b044ff);border:none;border-radius:var(--radius-md);color:#fff;font-family:var(--font-display);font-size:14px;font-weight:700;cursor:pointer;transition:var(--transition)}
+.logout-confirm-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,45,120,0.4)}
+.logout-warn{margin-top:16px;font-size:11px;color:var(--text-muted);font-family:var(--font-mono)}
 
 /* ===== FAB ===== */
 #fab{position:fixed;bottom:28px;right:28px;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--neon-blue),var(--neon-purple));border:none;color:#000;font-size:22px;cursor:none;box-shadow:0 8px 24px rgba(0,212,255,0.3);transition:var(--transition);z-index:500;display:flex;align-items:center;justify-content:center}
@@ -487,14 +501,29 @@ border-radius:16px;
     <div class="mt-8 mb-16">
       <select class="welcome-input" id="user-course-select" style="margin-top:8px">
         <option value="">Select your course</option>
-        <option value="JEE Aspirant">JEE Aspirant</option>
-        <option value="NEET / MBBS">NEET / MBBS</option>
-        <option value="Class 11">Class 11</option>
-        <option value="Class 12">Class 12</option>
-         <option value="Class 12">Commerce</option>
-         <option value="Class 12">Arts</option>
-        <option value="Other">Other</option>
-      </select
+        <optgroup label="── Science Stream ──">
+          <option value="JEE Aspirant">⚡ JEE Aspirant (PCM)</option>
+          <option value="NEET / MBBS">🧬 NEET / MBBS (PCB)</option>
+          <option value="Class 11 Science">📐 Class 11 – Science</option>
+          <option value="Class 12 Science">📐 Class 12 – Science</option>
+        </optgroup>
+        <optgroup label="── Commerce Stream ──">
+          <option value="Class 11 Commerce">📊 Class 11 – Commerce</option>
+          <option value="Class 12 Commerce">📊 Class 12 – Commerce</option>
+          <option value="CA Aspirant">💼 CA Aspirant</option>
+          <option value="BBA / BCom">🏦 BBA / BCom</option>
+        </optgroup>
+        <optgroup label="── Humanities Stream ──">
+          <option value="Class 11 Humanities">📚 Class 11 – Humanities</option>
+          <option value="Class 12 Humanities">📚 Class 12 – Humanities</option>
+          <option value="UPSC / IAS">🏛️ UPSC / IAS Aspirant</option>
+          <option value="BA / BSc Arts">🎨 BA / BSc Arts</option>
+        </optgroup>
+        <optgroup label="── Other ──">
+          <option value="College Student">🎓 College Student</option>
+          <option value="Other">📖 Other</option>
+        </optgroup>
+      </select>
     </div>
     <button class="welcome-btn" onclick="startApp()">Let's Study → </button>
     <div class="welcome-credit">Developed by Khushwant Yadav</div>
@@ -528,7 +557,7 @@ border-radius:16px;
           <span class="nav-badge" id="notes-badge">0</span>
         </div>
         <div class="nav-item" onclick="showPanel('drawing')">
-          <span class="nav-icon">✏️</span>Canvas
+          <span class="nav-icon">✏️</span>Drawing Board
         </div>
       </div>
       <div class="nav-section">
@@ -562,6 +591,9 @@ border-radius:16px;
         </div>
         <div class="nav-item" onclick="showShortcuts()">
           <span class="nav-icon">⌨️</span>Shortcuts
+        </div>
+        <div class="nav-item" onclick="showLogoutModal()" style="color:#ff2d78;border:1px solid rgba(255,45,120,0.15);background:rgba(255,45,120,0.04);margin-top:4px">
+          <span class="nav-icon">🚪</span>Log Out
         </div>
       </div>
     </div>
@@ -680,7 +712,7 @@ border-radius:16px;
             <select class="meta-tag-select" id="note-tag" onchange="autoSave()">
               <option value="general">General</option>
               <option value="jee">JEE</option>
-              <option value="mbbs">NEET</option>
+              <option value="mbbs">MBBS/NEET</option>
               <option value="physics">Physics</option>
               <option value="chemistry">Chemistry</option>
               <option value="maths">Maths</option>
@@ -1044,7 +1076,7 @@ function showPanel(id) {
   const titles = {dashboard:'Dashboard',notes:'My Notes',drawing:'Drawing Board',flashcards:'Flashcards',formulas:'JEE Formulas',mbbs:'MBBS Quick Rev',pomodoro:'Pomodoro',todo:'To-Do List',sticky:'Sticky Notes',profile:'Profile'};
   document.getElementById('topbar-title').textContent = titles[id] || id;
   document.getElementById('topbar-sub').textContent = {dashboard:'Overview & Stats',notes:'All your study notes',drawing:'Sketch & annotate',flashcards:'Active recall',formulas:'Physics, Chem, Maths',mbbs:'Quick revision cards',pomodoro:'Focus timer',todo:'Task manager',sticky:'Quick reminders',profile:'Your account'}[id] || '';
-  if (id === 'notes') resizeCanvas_noop();
+  if (id === 'drawing') resizeCanvas_noop();
   closeSidebarMobile();
 }
 
@@ -1265,7 +1297,29 @@ function exportNoteTxt() {
 function exportNotePdf() {
   if (!currentNote) return showToast('No note selected', 'error');
   const win = window.open('', '_blank');
-  win.document.write(`<html><head><title>${currentNote.title}</title><style>body{font-family:Georgia,serif;max-width:700px;margin:40px auto;line-height:1.7;color:#111}h1{border-bottom:2px solid #222;padding-bottom:12px}</style></head><body><h1>${escHtml(currentNote.title) || 'Untitled'}</h1><pre style="white-space:pre-wrap;font-family:inherit">${escHtml(currentNote.content)}</pre></body></html>`);
+  win.document.write(`<html><head><title>${currentNote.title}</title><style>body{font-family:Georgia,serif;max-width:700px;margin:40px auto;line-height:1.7;color:#111}h1{border-bottom:2px solid #222;padding-bottom:12px}</style></head><body><h1>${escHtml(currentNote.title) || 'Untitled'}</h1><pre style="white-space:pre-wrap;font-family:inherit">${escHtml(currentNote.content)}</pre>
+<!-- LOGOUT MODAL -->
+<div id="logout-modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9500;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(18px);opacity:0;pointer-events:none;transition:opacity 0.3s ease">
+  <div style="background:rgba(10,10,10,0.98);border:1px solid rgba(255,45,120,0.3);border-radius:28px;padding:40px 36px;max-width:380px;width:100%;text-align:center;position:relative;box-shadow:0 0 60px rgba(255,45,120,0.12),0 20px 60px rgba(0,0,0,0.8);animation:fadeIn 0.3s ease">
+    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#ff2d78,transparent);border-radius:28px 28px 0 0"></div>
+    <div style="font-size:54px;margin-bottom:14px">🚪</div>
+    <div style="font-size:22px;font-weight:800;margin-bottom:8px;color:#f0f0f0">Logging Out?</div>
+    <div style="font-size:13px;color:#888;line-height:1.7;margin-bottom:18px">You can switch your name &amp; course from the welcome screen. Your notes and data stay saved.</div>
+    <div id="logout-user-pill" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,45,120,0.08);border:1px solid rgba(255,45,120,0.2);border-radius:40px;padding:8px 20px;margin-bottom:28px">
+      <div id="logout-avatar" style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#b044ff);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#000">K</div>
+      <div style="text-align:left">
+        <div id="logout-name" style="font-size:13px;font-weight:700;color:#f0f0f0">Student</div>
+        <div id="logout-course" style="font-size:10px;color:#ff2d78;font-family:'JetBrains Mono',monospace;margin-top:1px">JEE Aspirant</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button onclick="closeLogoutModal()" style="flex:1;padding:13px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;color:#888;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.25s" onmouseover="this.style.borderColor='#00d4ff';this.style.color='#00d4ff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.color='#888'">Cancel</button>
+      <button onclick="confirmLogout()" style="flex:1;padding:13px;background:linear-gradient(135deg,#ff2d78,#b044ff);border:none;border-radius:14px;color:#fff;font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.25s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(255,45,120,0.4)'" onmouseout="this.style.transform='';this.style.boxShadow=''">Yes, Log Out</button>
+    </div>
+    <div style="margin-top:14px;font-size:11px;color:#333;font-family:'JetBrains Mono',monospace">Your notes &amp; data stay safe in this browser</div>
+  </div>
+</div>
+</body></html>`);
   win.document.close(); setTimeout(() => win.print(), 400);
   showToast('🖨️ Print dialog opened', 'info');
 }
@@ -1276,53 +1330,149 @@ function copyNote() {
 }
 
 // ===== DRAWING BOARD =====
+let canvasInited = false;
+
 function initCanvas() {
   const wrap = document.getElementById('canvas-wrap');
   const canvas = document.getElementById('drawing-canvas');
-  const resize = () => { canvas.width = wrap.clientWidth; canvas.height = wrap.clientHeight; };
-  resize();
-  window.addEventListener('resize', resize);
+
+  function resizeCanvas() {
+    // Save current drawing before resize
+    let saved = null;
+    if (drawCtx && canvas.width > 0) {
+      try { saved = drawCtx.getImageData(0, 0, canvas.width, canvas.height); } catch(e){}
+    }
+    canvas.width = wrap.clientWidth || window.innerWidth - 260;
+    canvas.height = wrap.clientHeight || window.innerHeight - 110;
+    // Restore context settings after resize (they reset on resize)
+    if (drawCtx) {
+      drawCtx.lineCap = 'round';
+      drawCtx.lineJoin = 'round';
+    }
+    // Restore drawing
+    if (saved && drawCtx) {
+      try { drawCtx.putImageData(saved, 0, 0); } catch(e){}
+    }
+  }
+
+  resizeCanvas();
   drawCtx = canvas.getContext('2d');
   drawCtx.lineCap = 'round';
   drawCtx.lineJoin = 'round';
+  window.addEventListener('resize', resizeCanvas);
 
-  canvas.addEventListener('mousedown', e => { isDrawing = true; [lastX, lastY] = [e.offsetX, e.offsetY]; saveDrawState(); });
-  canvas.addEventListener('mousemove', e => { if (!isDrawing) return; draw(e.offsetX, e.offsetY); });
-  canvas.addEventListener('mouseup', () => isDrawing = false);
-  canvas.addEventListener('mouseleave', () => isDrawing = false);
+  if (canvasInited) return; // Don't add listeners twice
+  canvasInited = true;
 
-  canvas.addEventListener('touchstart', e => { e.preventDefault(); const t = e.touches[0]; const r = canvas.getBoundingClientRect(); [lastX, lastY] = [t.clientX-r.left, t.clientY-r.top]; isDrawing = true; saveDrawState(); }, {passive:false});
-  canvas.addEventListener('touchmove', e => { e.preventDefault(); if (!isDrawing) return; const t = e.touches[0]; const r = canvas.getBoundingClientRect(); draw(t.clientX-r.left, t.clientY-r.top); }, {passive:false});
-  canvas.addEventListener('touchend', () => isDrawing = false);
+  // ── Mouse events ──
+  canvas.addEventListener('mousedown', e => {
+    e.preventDefault();
+    isDrawing = true;
+    const r = canvas.getBoundingClientRect();
+    lastX = e.clientX - r.left;
+    lastY = e.clientY - r.top;
+    saveDrawState();
+    // draw a dot on click
+    drawDot(lastX, lastY);
+  });
+
+  canvas.addEventListener('mousemove', e => {
+    if (!isDrawing) return;
+    const r = canvas.getBoundingClientRect();
+    draw(e.clientX - r.left, e.clientY - r.top);
+  });
+
+  canvas.addEventListener('mouseup', () => { isDrawing = false; });
+  canvas.addEventListener('mouseleave', () => { isDrawing = false; });
+
+  // ── Touch events ──
+  canvas.addEventListener('touchstart', e => {
+    e.preventDefault();
+    const t = e.touches[0];
+    const r = canvas.getBoundingClientRect();
+    lastX = t.clientX - r.left;
+    lastY = t.clientY - r.top;
+    isDrawing = true;
+    saveDrawState();
+    drawDot(lastX, lastY);
+  }, {passive: false});
+
+  canvas.addEventListener('touchmove', e => {
+    e.preventDefault();
+    if (!isDrawing) return;
+    const t = e.touches[0];
+    const r = canvas.getBoundingClientRect();
+    draw(t.clientX - r.left, t.clientY - r.top);
+  }, {passive: false});
+
+  canvas.addEventListener('touchend', () => { isDrawing = false; });
+  canvas.addEventListener('touchcancel', () => { isDrawing = false; });
 }
 
-function resizeCanvas_noop() {}
+function resizeCanvas_noop() {
+  // Called when switching to drawing panel — re-fit the canvas
+  setTimeout(() => {
+    const wrap = document.getElementById('canvas-wrap');
+    const canvas = document.getElementById('drawing-canvas');
+    if (!wrap || !canvas) return;
+    if (canvas.width !== wrap.clientWidth || canvas.height !== wrap.clientHeight) {
+      let saved = null;
+      if (drawCtx) try { saved = drawCtx.getImageData(0,0,canvas.width,canvas.height); } catch(e){}
+      canvas.width = wrap.clientWidth;
+      canvas.height = wrap.clientHeight;
+      if (drawCtx) { drawCtx.lineCap='round'; drawCtx.lineJoin='round'; }
+      if (saved && drawCtx) try { drawCtx.putImageData(saved,0,0); } catch(e){}
+    }
+  }, 50);
+}
 
-function draw(x, y) {
+function drawDot(x, y) {
   if (!drawCtx) return;
+  applyToolSettings();
   drawCtx.beginPath();
+  drawCtx.arc(x, y, (drawTool==='eraser' ? drawSize*2 : drawSize/2), 0, Math.PI*2);
+  drawCtx.fillStyle = drawTool==='eraser' ? 'rgba(0,0,0,1)' : drawColor;
+  if (drawTool==='eraser') {
+    const prev = drawCtx.globalCompositeOperation;
+    drawCtx.globalCompositeOperation = 'destination-out';
+    drawCtx.fill();
+    drawCtx.globalCompositeOperation = prev;
+  } else {
+    drawCtx.fill();
+  }
+  drawCtx.globalAlpha = 1;
+  drawCtx.globalCompositeOperation = 'source-over';
+}
+
+function applyToolSettings() {
+  if (!drawCtx) return;
   if (drawTool === 'eraser') {
     drawCtx.globalCompositeOperation = 'destination-out';
     drawCtx.lineWidth = drawSize * 4;
     drawCtx.strokeStyle = 'rgba(0,0,0,1)';
+    drawCtx.globalAlpha = 1;
   } else if (drawTool === 'highlight') {
     drawCtx.globalCompositeOperation = 'source-over';
-    drawCtx.globalAlpha = 0.3;
-    drawCtx.lineWidth = drawSize * 5;
+    drawCtx.globalAlpha = 0.35;
+    drawCtx.lineWidth = drawSize * 6;
     drawCtx.strokeStyle = drawColor;
   } else if (drawTool === 'pencil') {
     drawCtx.globalCompositeOperation = 'source-over';
-    drawCtx.globalAlpha = 0.6;
-    drawCtx.lineWidth = Math.max(1, drawSize * 0.8);
-    drawCtx.strokeStyle = drawColor || '#ffffff';
-
+    drawCtx.globalAlpha = 0.65;
+    drawCtx.lineWidth = Math.max(1, drawSize * 0.7);
+    drawCtx.strokeStyle = drawColor;
   } else {
     drawCtx.globalCompositeOperation = 'source-over';
     drawCtx.globalAlpha = 1;
     drawCtx.lineWidth = drawSize;
-    drawCtx.strokeStyle = drawColor || '#00d4ff';
-
+    drawCtx.strokeStyle = drawColor;
   }
+}
+
+function draw(x, y) {
+  if (!drawCtx) return;
+  applyToolSettings();
+  drawCtx.beginPath();
   drawCtx.moveTo(lastX, lastY);
   drawCtx.lineTo(x, y);
   drawCtx.stroke();
@@ -1728,6 +1878,43 @@ document.addEventListener('keydown', e => {
 // Update pomo ring circumference on start
 document.getElementById('pomo-ring-fill').style.strokeDasharray = '603';
 document.getElementById('pomo-ring-fill').style.strokeDashoffset = '0';
+
+
+// ===== LOGOUT =====
+function showLogoutModal() {
+  if (userData) {
+    document.getElementById('logout-avatar').textContent = userData.name.charAt(0).toUpperCase();
+    document.getElementById('logout-name').textContent = userData.name;
+    document.getElementById('logout-course').textContent = userData.course;
+  }
+  document.getElementById('logout-modal').style.opacity = '1';
+  document.getElementById('logout-modal').style.pointerEvents = 'all';
+}
+function closeLogoutModal() {
+  document.getElementById('logout-modal').style.opacity = '0';
+  document.getElementById('logout-modal').style.pointerEvents = 'none';
+}
+function confirmLogout() {
+  closeLogoutModal();
+  // Hide app
+  document.getElementById('app').classList.remove('visible');
+  // Clear user data only (keep notes/fc/todos)
+  localStorage.removeItem('knotes_user');
+  userData = null;
+  // Reset welcome form
+  document.getElementById('user-name-input').value = '';
+  document.getElementById('user-course-select').value = '';
+  // Show welcome screen after short delay
+  setTimeout(() => {
+    document.getElementById('welcome-modal').classList.add('active');
+    document.getElementById('app').style.opacity = '0';
+  }, 300);
+  showToast('👋 Logged out successfully', 'info');
+}
+// Close logout modal on backdrop click
+document.getElementById('logout-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeLogoutModal();
+});
 
 console.log('%cK Notes — Study Smarter.', 'color:#00d4ff;font-size:20px;font-weight:900');
 console.log('%cDeveloped by Khushwant Yadav', 'color:#b044ff;font-size:14px');
